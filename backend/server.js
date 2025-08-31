@@ -32,6 +32,15 @@ export function updateTask({id, updateFields}){
     return task;
 }
 
+export function toggleTask({id}){
+    const task= findById(id);
+    if (!task){
+        return null;
+    }
+    task.completed = !task.completed;
+    return task;
+}
+
 export function removeTask({id}){
     const task = tasks.findIndex(t => t.id === id);
     if (task === -1){
