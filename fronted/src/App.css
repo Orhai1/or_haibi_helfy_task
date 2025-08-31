@@ -1,0 +1,36 @@
+.container {
+  max-width: 820px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.title {
+  margin: 0;
+  font-size: 28px;
+}
+.counts {
+  opacity: 0.8;
+  font-size: 14px;
+}
+.info {
+  padding: 8px 12px;
+  background: #0d1a3d;
+  border: 1px solid #20316b;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+.error {
+  color: #ffb4b4;
+}
+.empty {
+  opacity: 0.85;
+  text-align: center;
+  padding: 24px;
+  border: 1px dashed #2a3566;
+  border-radius: 12px;
+}

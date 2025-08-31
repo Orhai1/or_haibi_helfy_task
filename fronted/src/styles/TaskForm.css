@@ -1,0 +1,18 @@
+.card {
+    background: #111734;
+    border: 1px solid #2a3566;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+.row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.small {
+    font-size: 12px;
+}
+.error {
+    color: #ffb4b4;
+}
