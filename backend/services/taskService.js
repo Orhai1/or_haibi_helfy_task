@@ -1,10 +1,10 @@
 import { getTasks, createTask, updateTask, findById, toggleTask, removeTask } from "../models/taskModel.js";
 
-export function list (){
-    return getTasks;
+export function list (params){
+    return getTasks(params);
 }
 
-export function create (title, description, priority){
+export function create ({title, description, priority}){
     if (!title){
         const err = new Error ("title is required");
         err.status = 400;
@@ -23,7 +23,7 @@ export function create (title, description, priority){
         throw err;
     }
 
-    return createTask({title, description, priority})
+    return createTask({title, description, priority })
 }
 
 export function edit (id, fields){
@@ -39,9 +39,9 @@ export function edit (id, fields){
         throw err;
     }
 
-    const task= updateTask(id, {...fields, title:fields.title, description: fields.description})
+    const task= updateTask(id, fields)
     if (!task){
-        const error = new Error("task not found");
+        const err = new Error("task not found");
         err.status=404;
         throw err;
     }
@@ -49,12 +49,13 @@ export function edit (id, fields){
 }
 
 export function toggle(id){
-    const toggle = toggleTask(id);
-    if (!toggle){
+    const task = toggleTask(id);
+    if (!task){
         const err= new Error ("task not found");
         err.status=404;
         throw err;
     }
+    return task;
 }
 
 export function remove(id){

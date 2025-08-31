@@ -3,7 +3,7 @@ import {list, create, edit, toggle, remove} from '../services/taskService.js'
 
 export function getList (req,res,next){
     try {
-        res.json(list());
+        res.json(list(req.query));
     } catch (err){
         next(err)
     }
@@ -20,7 +20,7 @@ export function createdTask (req, res, next){
 
 export function updatedTask (req, res, next){
     try{
-        const task = edit(req.parems.id, req.body || {});
+        const task = edit(req.params.id, req.body || {});
         res.json(task);
     } catch (err){
         next (err);
@@ -29,7 +29,7 @@ export function updatedTask (req, res, next){
 
 export function toggledTask (req, res, next){
     try{
-        const task = toggle(req.parems.id || {});
+        const task = toggle(req.params.id);
         res.json(task);
     } catch (err){
         next (err);
