@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { getTasks, createTask, updateTask, removeTask } from "../server";
+import { getList, createdTask, updatedTask, toggledTask, removedTask } from "../controllers/taskController.js";
 
 const router = Router();
-router.get('/', getTasks);
-router.post('/', getTasks);
-router.put ('/:id', updateTask);
-router.delete('/:id', removeTask);
-router.patch('/:id/toggle');
+router.get('/', getList);
+router.post('/', createdTask);
+router.put ('/:id', updatedTask);
+router.delete('/:id', removedTask);
+router.patch('/:id/toggle',toggledTask );
+
+export default router;
